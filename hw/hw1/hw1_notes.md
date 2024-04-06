@@ -1,6 +1,8 @@
 # ME 599 Homework 1 Notes: Reinforcement Learning
 Eric Mei
 
+NOTE: I was only able to get the code to run properly via the command line and a .py file, sorry.
+
 The purpose of this assignment is to become more familiar with reinforcement learning (RL) by exploring the [gymnasium package](https://gymnasium.farama.org/). RL is not something I generally think of using in my field (climate sciences), since performing actions and making observations of the climate state are generally very expensive (in the case of general circulation models) or difficult (on the actual climate system). I'm curious if these exercises can help me think more creatively about implementations of RL in my work.
 
 ## To-do list for assignment
@@ -30,11 +32,11 @@ The purpose of this assignment is to become more familiar with reinforcement lea
 ## 3. Training an agent
 I'm going to first follow the tutorial to train an agent on [the frozenlake example](https://gymnasium.farama.org/tutorials/training_agents/FrozenLake_tuto/#sphx-glr-tutorials-training-agents-frozenlake-tuto-py) (with a few modifications). If I finish that, I'll move onto doing the same thing with the taxi environment.
 
-- never used `class Params(NamedTuple)` before, but it looks super useful for some of my other research projects. I'll likely retrofit my existing code after this.
-- found some resources for Q-learning and \epsilon-greedy. As a reminder, Q is a combo of the policy and value functions, which describes the 'quality' of action-value pairs. You can get stuck in local minima by always optimizing for the best action-value pairs from a given initializiation, so \epsilon-greedy optimization takes random actions at \epsilon probability to get out of local minima.
+- never used `class Params(NamedTuple)` before, but it looks super useful for some of my other research projects. I'll likely retrofit my existing research code after this.
+- found some resources for Q-learning and $\epsilon$-greedy. As a reminder, Q is a combo of the policy and value functions, which describes the 'quality' of action-value pairs. You can get stuck in local minima by always optimizing for the best action-value pairs from a given initializiation, so $\epsilon$-greedy optimization takes random actions at $\epsilon$ probability to get out of local minima.
 - the above bullet point describes what is happening in lines 146-149, in which the `explorer` of the `EpsilonGreedy` class takes the optimal action as defined by the `learner` (of the `Qlearning` class) 90% of the time. 10% of the actions are random within the action space.
-- The existing implementation of the `Qlearning` class uses a TD(0) algorithm. It could be fun trying to code up TD(1+) algorithms.
-- The learned Q-values (kind of like the policy) are interesting, actually. I imagine people use these for XAI methods to recover what the trained RL model 'acutally' learned.
+- The existing implementation of the `Qlearning` class uses a TD(0) algorithm to update the Q-table. It could be fun trying to code up TD(1+) algorithms.
+- The plots of the policies from the Q-tables are the most interesting things to me - it'll be interesting to find out how to visualize policies for enviroments where there is stochasticity in the states (e.g., taxi or flappy bird). I'm most interested in how these could be used to understand what the trained RL model has learned.
 
 I didn't get far enough to edit the tutorial code and play around on my own, much less try this myself in a different environment. I think I have enough notes to pick up where I left off, though.
 

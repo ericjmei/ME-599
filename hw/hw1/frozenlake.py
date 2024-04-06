@@ -255,7 +255,7 @@ def plot_states_actions_distribution(states, actions, map_size):
     plt.show()
 
 ## run
-map_sizes = [4] #[4, 7, 9, 11]
+map_sizes = [4, 7] #[4, 7, 9, 11]
 res_all = pd.DataFrame()
 st_all = pd.DataFrame()
 
